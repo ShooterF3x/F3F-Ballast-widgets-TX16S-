@@ -14,7 +14,7 @@ Dynamic Dashboard: Instant visualization of wind speed, calculated target weight
 
 - Multi-Model Management: Clone, create, and delete glider profiles (Freestyler, Jazz, etc.).
 
-- Data Persistence: Automatic configuration backup on the SD card in /CONFIG/ballast_cfg.txt.
+- Data Persistence: Automatic configuration backup on the SD card in WIDGETS/ballast/ballast_cfg.txt.
 
 - Touch & Rotary Interface: Smooth page navigation, selection, and direct editing of values with red highlighting.
 
@@ -29,22 +29,10 @@ SD/
     └── ballast/
     
         ├── main.lua
+        └── ballast_cfg.txt
         
 
-Make sure to manually create a folder named CONFIG at the root of your SD card.
-While the widget automatically creates and updates the configuration file inside it, it cannot write to the SD card if the CONFIG folder itself is missing.
 
-SD/
-
-├── CONFIG/                 
-
-    └── ballast_cfg.txt     
-
-└── WIDGETS/
-
-    └── ballast/
-    
-        ├── main.lua
 
 <img width="783" height="291" alt="Capture d&#39;écran 2026-08-14 090016" src="https://github.com/user-attachments/assets/55cd2f59-17db-4559-9ee7-56fdbc5b86f7" />
 <img width="789" height="288" alt="Capture d&#39;écran 2026-08-14 085956" src="https://github.com/user-attachments/assets/1921c5a3-a529-4c08-b221-ef36ebadea80" />
