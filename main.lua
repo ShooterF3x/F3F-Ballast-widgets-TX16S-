@@ -1,6 +1,5 @@
 -- /WIDGETS/ballast/main.lua
--- EdgeTX Widget (main screen, color touch) - F3F Ballast Management
--- Compatible with TX16S / EdgeTX 2.10, color touch screen
+-- EdgeTX Widget (main screen, color touch) - F3F Ballast Management (Config locale au dossier)
 
 local name = "BALLAST"
 local options = {}
@@ -13,7 +12,8 @@ local defaultModels = {
     { name="JAZZ",       emptyW=2350, emptyCG=98,  targetCG=98,  area=58, vMin=3.0, wMin=2350, vMax=15.0, wMax=3500, chambers={{n="SPARS", d=98, m=180, max=4, qty=0}, {n="TIPS", d=158, m=140, max=4, qty=0}} }
 }
 
-local filename = "/CONFIG/ballast_cfg.txt"
+-- Fichier stocké directement dans le dossier /WIDGETS/ballast/
+local filename = "/WIDGETS/ballast/ballast_cfg.txt"
 local charset = " ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_*"
 
 local function getCharIdx(c)
@@ -58,7 +58,7 @@ end
 local function loadData(w)
     local f = io.open(filename, "r")
     if f then
-        local content = io.read(f, 4096)
+        local content = f:read("*all")
         io.close(f)
         if content and content ~= "" then
             local val = string.match(content, "mIdx=(%d+)")
@@ -101,19 +101,17 @@ local function loadData(w)
 end
 
 ------------------------------------------------------------------
--- LINEAR CURVE CALCULATION (Custom Min Point + Max Point)
+-- LINEAR CURVE CALCULATION
 ------------------------------------------------------------------
 local function calc(w)
     local g = w.models[w.mIdx]
     if not g then return end
     
-    -- Fallback default values if not defined
     g.vMin = g.vMin or 3.0
     g.wMin = g.wMin or g.emptyW
     g.vMax = g.vMax or 15.0
     g.wMax = g.wMax or (g.emptyW + 1000)
 
-    -- Linear calculation of target weight according to current wind
     if w.wind <= g.vMin then
         w.targetW = g.wMin
     elseif w.wind >= g.vMax then
