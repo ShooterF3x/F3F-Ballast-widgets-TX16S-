@@ -1,4 +1,4 @@
-F3F Ballast Manager - EdgeTX Widget
+# F3F Ballast Manager - EdgeTX Widget
 Color and touch-screen widget for EdgeTX radios (TX16S, TX16S MKII, etc.) designed specifically for F3F glider pilots.
 
 It calculates in real-time the optimal loading plan (distribution across ballast bays) based on wind speed, while minimizing Center of Gravity (CG) deviation from your target.
