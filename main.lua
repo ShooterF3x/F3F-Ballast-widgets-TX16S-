@@ -1,5 +1,5 @@
 -- /WIDGETS/ballast/main.lua
--- EdgeTX Widget (main screen, color touch) - F3F Ballast Management (Config locale au dossier)
+-- EdgeTX Widget (main screen, color touch) - F3F Ballast Management (Corrigé)
 
 local name = "BALLAST"
 local options = {}
@@ -12,7 +12,6 @@ local defaultModels = {
     { name="JAZZ",       emptyW=2350, emptyCG=98,  targetCG=98,  area=58, vMin=3.0, wMin=2350, vMax=15.0, wMax=3500, chambers={{n="SPARS", d=98, m=180, max=4, qty=0}, {n="TIPS", d=158, m=140, max=4, qty=0}} }
 }
 
--- Fichier stocké directement dans le dossier /WIDGETS/ballast/
 local filename = "/WIDGETS/ballast/ballast_cfg.txt"
 local charset = " ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_*"
 
@@ -58,7 +57,7 @@ end
 local function loadData(w)
     local f = io.open(filename, "r")
     if f then
-        local content = f:read("*all")
+        local content = io.read(f, 4096)
         io.close(f)
         if content and content ~= "" then
             local val = string.match(content, "mIdx=(%d+)")
