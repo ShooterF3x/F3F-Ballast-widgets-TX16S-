@@ -23,6 +23,7 @@ Download or clone this repository.
 
 Copy the ballast folder into the /WIDGETS/ directory of your SD card:
 SD/
+
 └── WIDGETS/
 
     └── ballast/
@@ -35,9 +36,9 @@ While the widget automatically creates and updates the configuration file inside
 
 SD/
 
-├── CONFIG/                 <-- Create this folder manually
+├── CONFIG/                 
 
-│   └── ballast_cfg.txt     <-- Automatically created by the widget
+    └── ballast_cfg.txt     
 
 └── WIDGETS/
 
