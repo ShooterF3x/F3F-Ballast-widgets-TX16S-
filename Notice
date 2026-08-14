@@ -1,0 +1,53 @@
+# 📖 User Guide - F3F Ballast Manager
+
+## 1. Introduction
+The **F3F Ballast Manager** widget is an embedded tool for EdgeTX transmitters (color touch screen). It simplifies ballast strategy in slope racing by precisely calculating the load to carry and its optimal distribution in the glider's bays to maintain perfect trimming.
+
+---
+
+## 2. Navigation and Controls
+
+The widget is fully operated using the radio's rotary encoder and buttons:
+- **[PAGE] Button:** Switches between the 4 widget pages (VOL, CONFIG, SOUTES, GESTION).
+- **Rotary Encoder:** Scrolls through the various parameters on a page (selected text turns red).
+- **[ENT] Button (Rotary Click):** Activates or deactivates the **edit mode** for a value. When a value is being edited, it appears on a **red background**. Turn the rotary encoder to adjust the value, then click **[ENT]** again to validate.
+- **Touch:** You can also tap directly on the bottom tabs or certain interface elements.
+
+---
+
+## 3. Page Descriptions
+
+### Page 1: VOL (Dashboard)
+This is the main screen to use on the field before launching a heat.
+- **VENT (WIND):** Displays current speed. In edit mode, adjust it in 0.5 m/s steps. The target weight updates instantly.
+- **CIBLE (TARGET):** Indicates the theoretical weight calculated according to your wind curve.
+- **MODÈLE (MODEL):** Displays the name of the active glider.
+- **Loading Gauge:** Horizontal bar progressing dynamically from empty weight (0% ballast) to the maximum weight allowed by your bays.
+- **POIDS & CG (WEIGHT & CG):** Displays total onboard weight and calculated CG versus target CG. The indicator on the right turns **green** if the deviation is $\le 0.5\text{ mm}$, or **red** if the deviation is too large.
+- **Bay Layout:** Clearly indicates the exact number of slugs to place in each bay (`CLE`, `AILES`, etc.) as well as the added mass.
+
+### Page 2: CONFIG & CURVE
+Sets up your model's characteristics and ballast law:
+- **Glider Name:** Editable character by character.
+- **Target CG (mm):** The ideal center of gravity sought.
+- **Empty Weight (g) & Empty CG (mm):** Base reference of your glider without lead.
+- **Wind Curve (Min & Max Pt):** 
+  - *Pt Min Wind / Weight:* Usually configured for your empty flight (e.g., 3.0 m/s = Empty weight).
+  - *Pt Max Wind / Weight:* Your high reference point (e.g., 15.0 m/s = Maximum weight). The widget linearly interpolates intermediate conditions.
+
+### Page 3: BAYS (SOUTES)
+Manage the physical architecture of your ballast here:
+- Navigate between your different bays.
+- Modify the **max number of slugs**, **unit mass (g)**, and **distance to CG (mm)**.
+- Use the touch buttons or bottom selection to **[+ ADD BAY]** or **[- DELETE]** a bay.
+
+### Page 4: MANAGEMENT (GESTION)
+Manage your glider fleet:
+- **Clone** the active model to duplicate an existing profile.
+- **Create** a new blank model.
+- **Delete** the active model (minimum one model required).
+
+---
+
+## 4. Backup
+All modifications (configurations, bay settings, new model, last wind speed used) are automatically saved on the SD card in `/CONFIG/ballast_cfg.txt` as soon as a change is validated.
