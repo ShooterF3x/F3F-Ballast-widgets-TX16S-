@@ -36,7 +36,11 @@ While the widget automatically creates and updates the configuration file inside
 SD/
 
 ├── CONFIG/                 <-- Create this folder manually
+
 │   └── ballast_cfg.txt     <-- Automatically created by the widget
+
 └── WIDGETS/
+
     └── ballast/
+    
         ├── main.lua
